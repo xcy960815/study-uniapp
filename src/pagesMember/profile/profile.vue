@@ -69,7 +69,7 @@ const uploadFile = (file: string) => {
       if (res.statusCode === 200) {
         const avatar = JSON.parse(res.data).result.avatar
         // 个人信息页数据更新
-        profile.value!.avatar = avatar
+        profile.value.avatar = avatar
         // Store头像更新
         memberStore.profile!.avatar = avatar
         uni.showToast({ icon: 'success', title: '更新成功' })
@@ -101,14 +101,15 @@ const onFullLocationChange: UniHelper.RegionPickerOnChange = (ev) => {
 
 // 点击保存提交表单
 const onSubmit = async () => {
-  const { nickname, gender, birthday } = profile.value
+  const { nickname, gender, birthday, profession } = profile.value
   const res = await putMemberProfileAPI({
     nickname,
     gender,
     birthday,
-    provinceCode: fullLocationCode[0],
-    cityCode: fullLocationCode[1],
-    countyCode: fullLocationCode[2],
+    profession,
+    provinceCode: fullLocationCode[0] || undefined,
+    cityCode: fullLocationCode[1] || undefined,
+    countyCode: fullLocationCode[2] || undefined,
   })
   // 更新Store昵称
   memberStore.profile!.nickname = res.result.nickname
@@ -143,7 +144,7 @@ const onSubmit = async () => {
         </view>
         <view class="form-item">
           <text class="label">昵称</text>
-          <input class="input" type="text" placeholder="请填写昵称" v-model="profile!.nickname" />
+          <input class="input" type="text" placeholder="请填写昵称" v-model="profile.nickname" />
         </view>
         <view class="form-item">
           <text class="label">性别</text>
@@ -189,7 +190,7 @@ const onSubmit = async () => {
         <!-- #endif -->
         <view class="form-item">
           <text class="label">职业</text>
-          <input class="input" type="text" placeholder="请填写职业" :value="profile?.profession" />
+          <input class="input" type="text" placeholder="请填写职业" v-model="profile.profession" />
         </view>
       </view>
       <!-- 提交按钮 -->
