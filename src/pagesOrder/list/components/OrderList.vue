@@ -65,17 +65,21 @@ const onOrderPay = async (id: string) => {
   } else {
     // #ifdef MP-WEIXIN
     // 正式环境微信支付
-    const res = await getPayWxPayMiniPayAPI({ orderId: id })
-    await wx.requestPayment(res.result)
-    // #endif
-
-    // #ifdef H5 || APP-PLUS
-    // H5端 和 App 端未开通支付-模拟支付体验
-    await getPayMockAPI({ orderId: id })
+    // const res = await getPayWxPayMiniPayAPI({ orderId: id })
+    // await wx.requestPayment(res.result)
     // #endif
   }
   // 成功提示
-  uni.showToast({ title: '支付成功' })
+  uni.showToast({ title: '模拟支付成功' })
+  // 模拟支付提示
+  setTimeout(() => {
+    wx.showModal({
+      title: '温馨提示',
+      content: '此交易是模拟支付，您并未付款，不会导致实际购买商品或服务',
+      confirmText: '知道了',
+      showCancel: false,
+    })
+  }, 2000)
   // 更新订单状态
   const order = orderList.value.find((v) => v.id === id)
   order!.orderState = OrderState.DaiFaHuo
