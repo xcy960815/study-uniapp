@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@dcloudio/uni-app':
     specifier: 3.0.0-alpha-3081220230802001
-    version: 3.0.0-alpha-3081220230802001(@dcloudio/types@3.3.3)(postcss@8.4.27)(vue@3.3.4)
+    version: 3.0.0-alpha-3081220230802001(@dcloudio/types@3.4.3)(postcss@8.4.27)(vue@3.3.4)
   '@dcloudio/uni-app-plus':
     specifier: 3.0.0-alpha-3081220230802001
     version: 3.0.0-alpha-3081220230802001(postcss@8.4.27)(vite@4.4.9)(vue@3.3.4)
@@ -48,8 +48,8 @@ dependencies:
     specifier: 3.0.0-alpha-3081220230802001
     version: 3.0.0-alpha-3081220230802001(postcss@8.4.27)(vue@3.3.4)
   '@dcloudio/uni-ui':
-    specifier: ^1.4.23
-    version: 1.4.23
+    specifier: ^1.4.28
+    version: 1.4.28
   pinia:
     specifier: 2.0.27
     version: 2.0.27(typescript@5.1.6)(vue@3.3.4)
@@ -65,8 +65,8 @@ dependencies:
 
 devDependencies:
   '@dcloudio/types':
-    specifier: ^3.3.3
-    version: 3.3.3
+    specifier: ^3.4.3
+    version: 3.4.3
   '@dcloudio/uni-automator':
     specifier: 3.0.0-alpha-3081220230802001
     version: 3.0.0-alpha-3081220230802001(jest-environment-node@27.5.1)(jest@27.0.4)(postcss@8.4.27)(vue@3.3.4)
@@ -89,11 +89,11 @@ devDependencies:
     specifier: ^18.11.9
     version: 18.11.10
   '@uni-helper/uni-app-types':
-    specifier: ^0.5.8
-    version: 0.5.8(typescript@5.1.6)
+    specifier: ^0.5.12
+    version: 0.5.12(typescript@5.1.6)
   '@uni-helper/uni-ui-types':
     specifier: ^0.5.11
-    version: 0.5.11(@uni-helper/uni-app-types@0.5.8)
+    version: 0.5.11(@uni-helper/uni-app-types@0.5.12)
   '@vue/eslint-config-prettier':
     specifier: ^7.0.0
     version: 7.0.0(eslint@8.28.0)(prettier@2.8.0)
@@ -1328,8 +1328,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@dcloudio/types@3.3.3:
-    resolution: {integrity: sha512-xfp88QOJ2fgCzv49HhEGrX0L+3xDsCyyvcoApL7z0J1Lr7tqPUkxqAVBe9zBlKsDX/mO9mNj7NzKIisHfp+fNQ==}
+  /@dcloudio/types@3.4.3:
+    resolution: {integrity: sha512-WzQGX06z2+HU3HnOO+/DxX37jyUECSXCuI7GVjFXs10+ZExTbdouwQXZvH8hR7k/FjuXFjQKHV9fuvfexyXluw==}
 
   /@dcloudio/uni-app-plus@3.0.0-alpha-3081220230802001(postcss@8.4.27)(vite@4.4.9)(vue@3.3.4):
     resolution: {integrity: sha512-WQ8P60e9ucUpT4iCG51qqWmbvsEvpTNljLyDO71Ese85QFR814M5flnMLVeD3ILfV9mPaeIaBx+hixKBE6KrLQ==}
@@ -1400,12 +1400,12 @@ packages:
     resolution: {integrity: sha512-HK6nvrGyX5kNEMTm9EXVSGbB6RlMHP0vTTsZl8VoQC6xVWPfyCA1uZApJNqIcA+gSvFVL2NK4x3gYfIhCU+SHg==}
     dev: false
 
-  /@dcloudio/uni-app@3.0.0-alpha-3081220230802001(@dcloudio/types@3.3.3)(postcss@8.4.27)(vue@3.3.4):
+  /@dcloudio/uni-app@3.0.0-alpha-3081220230802001(@dcloudio/types@3.4.3)(postcss@8.4.27)(vue@3.3.4):
     resolution: {integrity: sha512-C00W+cEAvckJEnnyiJWG5gcYSsyGmli5yWwLB8ne/9xaf0wRoBzoSG6QKv2UwTY33C/RcW34VnF4iMKHLUUX/Q==}
     peerDependencies:
       '@dcloudio/types': ^3.3.2
     dependencies:
-      '@dcloudio/types': 3.3.3
+      '@dcloudio/types': 3.4.3
       '@dcloudio/uni-cloud': 3.0.0-alpha-3081220230802001(postcss@8.4.27)(vue@3.3.4)
       '@dcloudio/uni-components': 3.0.0-alpha-3081220230802001(postcss@8.4.27)(vue@3.3.4)
       '@dcloudio/uni-i18n': 3.0.0-alpha-3081220230802001
@@ -1908,8 +1908,8 @@ packages:
       - vue
     dev: false
 
-  /@dcloudio/uni-ui@1.4.23:
-    resolution: {integrity: sha512-FJRkhL240gin9WvOunY38Yi2/0FzTLVlEI3dxcjzaV1oYa81o+IWEf/29YDiRrsHuvYDk9g600QgiZLC+A6ycA==}
+  /@dcloudio/uni-ui@1.4.28:
+    resolution: {integrity: sha512-e/lSbvR79KH9+d3D4ueNbvD6szigjO/5IyjBNmiTqaj0PTS324fBV3L6f3s1qpkYonM4rdOl000hVOcAg6Gh/A==}
     dev: false
 
   /@dcloudio/uni-vue-devtools@3.0.0-alpha-3080220230511001(postcss@8.4.27)(vue@3.3.4):
@@ -3363,18 +3363,18 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@uni-helper/uni-app-types@0.5.8(typescript@5.1.6):
-    resolution: {integrity: sha512-iB2JG6ygBjGcUvSAKpuxrK8JfPBYuLXf3p8fMTM3Mtwoi+VvcyU4hJJwbndX3mqqVJw/lGpsOlPIBozp8NZ3Cg==}
+  /@uni-helper/uni-app-types@0.5.12(typescript@5.1.6):
+    resolution: {integrity: sha512-SeUEgDgGftI4XEp1AB3C6IFLnRPT83tgTCCmlLUBmQyHh+UhRY+CX4QtgQ0n/kF8txNUq8Bc9YwKlYdXQGx6Ww==}
     engines: {node: '>=14.18'}
     peerDependencies:
       typescript: ^4.8.0 || ^5.0.0
     dependencies:
-      '@dcloudio/types': 3.3.3
+      '@dcloudio/types': 3.4.3
       typescript: 5.1.6
       vue3: /vue@3.3.4
     dev: true
 
-  /@uni-helper/uni-ui-types@0.5.11(@uni-helper/uni-app-types@0.5.8):
+  /@uni-helper/uni-ui-types@0.5.11(@uni-helper/uni-app-types@0.5.12):
     resolution: {integrity: sha512-tGX4llyJBdq9TmNjmZYKu4eueUWUU0F/YgZeTWDgVCmlgYGavhcUL7R+I0Uxe5hGoqFXkNf0ZnmG/WFZWfK/HQ==}
     engines: {node: '>=14.18'}
     peerDependencies:
@@ -3383,8 +3383,8 @@ packages:
       '@uni-helper/uni-app-types':
         optional: true
     dependencies:
-      '@dcloudio/types': 3.3.3
-      '@uni-helper/uni-app-types': 0.5.8(typescript@5.1.6)
+      '@dcloudio/types': 3.4.3
+      '@uni-helper/uni-app-types': 0.5.12(typescript@5.1.6)
       vue3: /vue@3.3.4
     dev: true
 
