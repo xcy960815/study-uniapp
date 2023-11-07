@@ -121,9 +121,13 @@ const onOrderPay = async () => {
     await getPayMockAPI({ orderId: query.id })
   } else {
     // #ifdef MP-WEIXIN
-    // 正式环境微信支付
+
+    // 正式环境支付：1.获取支付订单信息，2.调用微信支付API
     // const res = await getPayWxPayMiniPayAPI({ orderId: query.id })
     // await wx.requestPayment(res.result)
+
+    // 注意：因小程序上线后被恶意投诉：理由为支付 0.01 元后不发货，现调整为模拟支付
+    await getPayMockAPI({ orderId: query.id })
     // #endif
 
     // #ifdef H5 || APP-PLUS
