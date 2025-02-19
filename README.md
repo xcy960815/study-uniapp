@@ -99,10 +99,10 @@
 
 ### 开发环境
 
-- Windows 版本： Windows 11 家庭中文版
+- Windows 版本： Windows 11 家庭中文版 / MacOS 15.0
 - 开发工具： VS Code 、 HbuilderX 、 微信开发者工具
-- Node 版本： v16.15.0
-- pnpm 版本：v8.6.10
+- Node 版本： v16.15.0 / v22.15.0
+- pnpm 版本：v8.6.10 / v9.15.3
 
 ### 运行程序
 
