@@ -127,9 +127,14 @@ const onOpenPrivacyContract = () => {
         </view>
       </view>
       <view class="tips" :class="{ animate__shakeY: isAgreePrivacyShakeY }">
-        <label class="label" @tap="isAgreePrivacy = !isAgreePrivacy">
-          <radio class="radio" color="#28bb9c" :checked="isAgreePrivacy" />
-          <text>登录/注册即视为你同意小兔鲜儿</text>
+        <label class="label">
+          <radio
+            class="radio"
+            color="#28bb9c"
+            :checked="isAgreePrivacy"
+            @tap="isAgreePrivacy = !isAgreePrivacy"
+          />
+          <text @tap="isAgreePrivacy = !isAgreePrivacy">登录/注册即视为你同意小兔鲜儿</text>
         </label>
         <navigator class="link" hover-class="none" url="./protocal">《服务条款》</navigator>
         和
