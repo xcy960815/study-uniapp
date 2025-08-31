@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# UniApp 小兔鲜儿商城 Docker 构建脚本
+# Study UniApp 学习项目 Docker 构建脚本
 
 set -e
 
@@ -12,12 +12,12 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # 项目信息
-PROJECT_NAME="uniapp-shop"
+PROJECT_NAME="study-uniapp"
 VERSION=${1:-"latest"}
 REGISTRY=${2:-"xcy960815"}
 IMAGE_NAME="${REGISTRY}/${PROJECT_NAME}"
 
-echo -e "${BLUE}🚀 开始构建 UniApp 小兔鲜儿商城 Docker 镜像${NC}"
+echo -e "${BLUE}🚀 开始构建 Study UniApp 学习项目 Docker 镜像${NC}"
 echo -e "${BLUE}项目名称: ${PROJECT_NAME}${NC}"
 echo -e "${BLUE}版本标签: ${VERSION}${NC}"
 echo -e "${BLUE}镜像名称: ${IMAGE_NAME}:${VERSION}${NC}"

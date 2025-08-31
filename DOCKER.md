@@ -2,7 +2,7 @@
 
 ## 📋 项目概述
 
-UniApp 小兔鲜儿商城 H5 版本的 Docker 化部署方案，支持快速构建、部署和扩展。
+Study UniApp 学习项目 H5 版本的 Docker 化部署方案，支持快速构建、部署和扩展。
 
 ## 🏗️ 项目结构
 
@@ -36,10 +36,10 @@ UniApp 小兔鲜儿商城 H5 版本的 Docker 化部署方案，支持快速构�
 
 ```bash
 # 1. 构建镜像
-docker build -t uniapp-shop:latest .
+docker build -t study-uniapp:latest .
 
 # 2. 运行容器
-docker run -d -p 8080:80 --name uniapp-shop uniapp-shop:latest
+docker run -d -p 8080:80 --name study-uniapp study-uniapp:latest
 
 # 3. 访问应用
 open http://localhost:8080
@@ -120,22 +120,22 @@ curl http://localhost:8080/health
 ### 日志查看
 ```bash
 # 查看容器日志
-docker logs uniapp-shop
+docker logs study-uniapp
 
 # 查看 Nginx 访问日志
-docker exec uniapp-shop tail -f /var/log/nginx/access.log
+docker exec study-uniapp tail -f /var/log/nginx/access.log
 
 # 查看 Nginx 错误日志
-docker exec uniapp-shop tail -f /var/log/nginx/error.log
+docker exec study-uniapp tail -f /var/log/nginx/error.log
 ```
 
 ### 性能监控
 ```bash
 # 查看资源使用情况
-docker stats uniapp-shop
+docker stats study-uniapp
 
 # 查看容器详细信息
-docker inspect uniapp-shop
+docker inspect study-uniapp
 ```
 
 ## 🚀 生产部署
@@ -143,24 +143,24 @@ docker inspect uniapp-shop
 ### 1. 镜像推送
 ```bash
 # 标记镜像
-docker tag uniapp-shop:latest your-registry/uniapp-shop:v1.0.0
+docker tag study-uniapp:latest your-registry/study-uniapp:v1.0.0
 
 # 推送镜像
-docker push your-registry/uniapp-shop:v1.0.0
+docker push your-registry/study-uniapp:v1.0.0
 ```
 
 ### 2. 服务器部署
 ```bash
 # 拉取镜像
-docker pull your-registry/uniapp-shop:v1.0.0
+docker pull your-registry/study-uniapp:v1.0.0
 
 # 运行服务
 docker run -d \
-  --name uniapp-shop \
+  --name study-uniapp \
   --restart unless-stopped \
   -p 80:80 \
   -v /var/log/nginx:/var/log/nginx \
-  your-registry/uniapp-shop:v1.0.0
+  your-registry/study-uniapp:v1.0.0
 ```
 
 ### 3. 负载均衡配置 (Nginx)
@@ -202,12 +202,12 @@ jobs:
       
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.REGISTRY }}/uniapp-shop:${{ github.sha }} .
+          docker build -t ${{ secrets.REGISTRY }}/study-uniapp:${{ github.sha }} .
           
       - name: Push to registry
         run: |
           echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-          docker push ${{ secrets.REGISTRY }}/uniapp-shop:${{ github.sha }}
+          docker push ${{ secrets.REGISTRY }}/study-uniapp:${{ github.sha }}
 ```
 
 ## 🛠️ 故障排查
@@ -217,19 +217,19 @@ jobs:
 #### 1. 容器启动失败
 ```bash
 # 查看详细错误
-docker logs uniapp-shop
+docker logs study-uniapp
 
 # 检查配置文件
-docker exec uniapp-shop nginx -t
+docker exec study-uniapp nginx -t
 ```
 
 #### 2. 静态资源 404
 ```bash
 # 检查文件是否存在
-docker exec uniapp-shop ls -la /usr/share/nginx/html/
+docker exec study-uniapp ls -la /usr/share/nginx/html/
 
 # 检查权限
-docker exec uniapp-shop ls -la /usr/share/nginx/html/
+docker exec study-uniapp ls -la /usr/share/nginx/html/
 ```
 
 #### 3. API 代理失败

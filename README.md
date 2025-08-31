@@ -2,17 +2,17 @@
 
 ### 项目说明
 
-小兔鲜儿体系包含五个端：微信小程序端，H5 端，App 端，PC 端，管理后台。
+Study UniApp 学习项目，基于 uni-app 框架开发的跨平台电商应用。
 
-当前仓库是 **uni-app** 开发的**微信小程序端**，通过**条件编译**能兼容 **H5 端** 和 **App 端**。
+当前仓库是 **uni-app** 开发的学习项目，通过**条件编译**能兼容 **H5 端**、**微信小程序端** 和 **App 端**。
 
 ### 在线体验
 
 <table>
   <tr>
     <td>体验小程序端</td>
-    <td><a target="_blank" href="https://megasu.atomgit.net/uniapp-shop-vue3-ts/">体验 H5 端</a></td>
-    <td><a target="_blank" href="https://gitee.com/Megasu/uniapp-shop-vue3-ts/releases/download/v1.0.0/heima-shop.apk">体验 App 端(安卓)</a></td>
+    <td><a target="_blank" href="https://megasu.atomgit.net/study-uniapp-vue3-ts/">体验 H5 端</a></td>
+    <td><a target="_blank" href="https://gitee.com/Megasu/study-uniapp-vue3-ts/releases/download/v1.0.0/study-uniapp.apk">体验 App 端(安卓)</a></td>
   </tr>
   <tr>
     <td><img width="300" src="./README/images/code-mp-weixin.png" alt=""></td>
@@ -37,7 +37,7 @@
 
 ### 📦 项目源码
 
-[https://gitcode.com/Megasu/uniapp-shop-vue3-ts/](https://gitcode.com/Megasu/uniapp-shop-vue3-ts/)
+[https://gitcode.com/Megasu/study-uniapp-vue3-ts/](https://gitcode.com/Megasu/study-uniapp-vue3-ts/)
 
 ### 项目架构
 
@@ -47,7 +47,7 @@
 
 ### 在线演示
 
-项目已上线，微信搜索小程序 **小兔鲜儿** 即可体验。
+项目为学习演示项目，支持 H5、微信小程序、App 等多端运行。
 
 ### 项目截图
 
