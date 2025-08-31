@@ -1,0 +1,58 @@
+# Docker Compose for UniApp 小兔鲜儿商城
+version: '3.8'
+
+services:
+  # 前端 H5 应用
+  uniapp-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: uniapp-shop:latest
+    container_name: uniapp-shop-web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./logs/nginx:/var/log/nginx
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "com.docker.compose.project=uniapp-shop"
+      - "com.docker.compose.service=web"
+
+  # 后端 API 服务 (如果需要本地测试)
+  # api-server:
+  #   image: your-backend-image:latest
+  #   container_name: study-java-container
+  #   ports:
+  #     - "8084:8084"
+  #   restart: unless-stopped
+  #   environment:
+  #     - TZ=Asia/Shanghai
+  #     - SPRING_PROFILES_ACTIVE=prod
+  #   networks:
+  #     - app-network
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:8084/health"]
+  #     interval: 30s
+  #     timeout: 10s
+  #     retries: 3
+
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  nginx-logs:
+    driver: local
