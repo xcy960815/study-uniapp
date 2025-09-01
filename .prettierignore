@@ -1,0 +1,13 @@
+dist
+unpackage
+node_modules
+.husky
+.vscode
+logs
+*.log
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+

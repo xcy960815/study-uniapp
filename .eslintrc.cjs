@@ -8,6 +8,7 @@ module.exports = {
     'eslint:recommended',
     '@vue/eslint-config-typescript',
     '@vue/eslint-config-prettier',
+    'plugin:prettier/recommended',
   ],
   // 小程序全局变量
   globals: {
@@ -24,16 +25,7 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
-    'prettier/prettier': [
-      'warn',
-      {
-        singleQuote: true,
-        semi: false,
-        printWidth: 100,
-        trailingComma: 'all',
-        endOfLine: 'auto',
-      },
-    ],
+    'prettier/prettier': 'warn',
     'vue/multi-word-component-names': ['off'],
     'vue/no-setup-props-destructure': ['off'],
     'vue/no-deprecated-html-element-is': ['off'],
