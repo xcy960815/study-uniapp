@@ -1,30 +1,3 @@
-# syntax=docker/dockerfile:1
-
-# --- Build stage: compile H5 static assets ---
-FROM node:18-alpine AS build
-WORKDIR /app
-
-# Install dependencies first to leverage Docker layer caching
-COPY package.json package-lock.json* ./
-RUN npm install -g npm@10 && \
-    npm install
-
-# Copy source and build
-COPY . .
-RUN npm run build:h5
-
-# --- Runtime stage: serve with nginx ---
-FROM nginx:alpine AS runtime
-
-# Replace default site config with SPA-friendly config
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copy built assets
-COPY --from=build /app/dist/build/h5 /usr/share/nginx/html
-
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-
 # 多阶段构建 Dockerfile for UniApp 小兔鲜儿商城
 
 # ================================
@@ -107,14 +80,7 @@ RUN echo '#!/bin/sh' > /start.sh && \
     echo 'nginx -t && nginx -g "daemon off;"' >> /start.sh && \
     chmod +x /start.sh
 
-# 使用非 root 用户运行（安全考虑）
-RUN chown -R nginx:nginx /var/cache/nginx && \
-    chown -R nginx:nginx /var/log/nginx && \
-    chown -R nginx:nginx /etc/nginx/conf.d && \
-    touch /var/run/nginx.pid && \
-    chown -R nginx:nginx /var/run/nginx.pid
-
-USER nginx
+# 如果需要使用非 root 运行，建议改用监听 8080 端口后再启用 USER
 
 # 启动服务
 CMD ["/start.sh"]
