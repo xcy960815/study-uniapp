@@ -9,7 +9,7 @@ services:
     image: study-uniapp:latest
     container_name: study-uniapp-web
     ports:
-      - "8080:80"
+      - "9527:80"
     restart: unless-stopped
     environment:
       - TZ=Asia/Shanghai
@@ -55,3 +55,11 @@ networks:
 volumes:
   nginx-logs:
     driver: local
+
+
+
+# 执行指令
+# docker compose -p study-uniapp -f docker-compose.yml up -d --remove-orphans
+
+# 停止 study-uniapp 项目容器
+# docker compose -p study-uniapp -f docker-compose.yml down
