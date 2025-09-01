@@ -35,8 +35,9 @@ RUN pnpm run build:h5
 FROM nginx:1.25-alpine
 
 # 设置维护者信息
-LABEL maintainer="your-email@example.com"
-LABEL description="UniApp 小兔鲜儿商城 H5 版本"
+LABEL maintainer="18763006837@163.com"
+
+LABEL description="study-uniapp"
 
 # 安装必要工具
 RUN apk add --no-cache tzdata
@@ -95,14 +96,14 @@ CMD ["/start.sh"]
 # 构建命令示例
 # ================================
 # 开发环境构建：
-# docker build -t uniapp-shop:dev .
+# docker build -t study-uniapp:dev .
 #
 # 生产环境构建：
-# docker build -t uniapp-shop:latest .
-# docker build -t xcy960815/uniapp-shop:1.0.0 .
+# docker build -t study-uniapp:latest .
+# docker build -t <your-account>/study-uniapp:1.0.0 .
 #
 # 运行容器：
-# docker run -d -p 80:80 --name uniapp-shop uniapp-shop:latest
+# docker run -d -p 80:80 --name study-uniapp study-uniapp:latest
 #
 # 推送到仓库：
-# docker push xcy960815/uniapp-shop:1.0.0
+# docker push <your-account>/study-uniapp:1.0.0
