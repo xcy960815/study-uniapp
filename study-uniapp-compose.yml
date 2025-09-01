@@ -3,10 +3,7 @@
 services:
   # 前端 H5 应用
   study-uniapp-web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: study-uniapp:latest
+    image: xcy960815/study-uniapp:1.0.0
     container_name: study-uniapp-web
     ports:
       - '9527:80'
@@ -56,7 +53,7 @@ volumes:
   nginx-logs:
     driver: local
 # 执行指令
-# docker compose -p study-uniapp -f study-uniapp-compose.yml up -d --remove-orphans
+# docker-compose -p study-uniapp -f study-uniapp-compose.yml up -d --remove-orphans
 
 # 停止 study-uniapp 项目容器
 # docker compose -p study-uniapp -f study-uniapp-compose.yml down
