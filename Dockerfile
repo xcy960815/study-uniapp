@@ -85,18 +85,6 @@ RUN echo '#!/bin/sh' > /start.sh && \
 # 启动服务
 CMD ["/start.sh"]
 
-# ================================
-# 构建命令示例
-# ================================
-# 开发环境构建：
-# docker build -t study-uniapp:dev .
 #
 # 生产环境构建：
-# docker build -t study-uniapp:latest .
 # docker build -t xcy960815/study-uniapp:1.0.0 .
-#
-# 运行容器：
-# docker run -d -p 80:80 --name study-uniapp study-uniapp:latest
-#
-# 推送到仓库：
-# docker push xcy960815/study-uniapp:1.0.0
