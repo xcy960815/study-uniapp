@@ -1,3 +1,30 @@
+# syntax=docker/dockerfile:1
+
+# --- Build stage: compile H5 static assets ---
+FROM node:18-alpine AS build
+WORKDIR /app
+
+# Install dependencies first to leverage Docker layer caching
+COPY package.json package-lock.json* ./
+RUN npm install -g npm@10 && \
+    npm install
+
+# Copy source and build
+COPY . .
+RUN npm run build:h5
+
+# --- Runtime stage: serve with nginx ---
+FROM nginx:alpine AS runtime
+
+# Replace default site config with SPA-friendly config
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy built assets
+COPY --from=build /app/dist/build/h5 /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
 # 多阶段构建 Dockerfile for UniApp 小兔鲜儿商城
 
 # ================================

@@ -1,3 +1,14 @@
+node_modules
+.git
+.husky
+.vscode
+dist
+coverage
+*.log
+Dockerfile
+docker-compose.yml
+**/.DS_Store
+
 # Node.js
 node_modules
 npm-debug.log*
