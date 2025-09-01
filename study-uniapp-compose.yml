@@ -9,7 +9,7 @@ services:
     image: study-uniapp:latest
     container_name: study-uniapp-web
     ports:
-      - "9527:80"
+      - '9527:80'
     restart: unless-stopped
     environment:
       - TZ=Asia/Shanghai
@@ -18,14 +18,14 @@ services:
     networks:
       - app-network
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      test: ['CMD', 'curl', '-f', 'http://localhost/health']
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 40s
     labels:
-      - "com.docker.compose.project=study-uniapp"
-      - "com.docker.compose.service=web"
+      - 'com.docker.compose.project=study-uniapp'
+      - 'com.docker.compose.service=web'
 
   # 后端 API 服务 (如果需要本地测试)
   # api-server:
@@ -55,11 +55,8 @@ networks:
 volumes:
   nginx-logs:
     driver: local
-
-
-
 # 执行指令
-# docker compose -p study-uniapp -f docker-compose.yml up -d --remove-orphans
+# docker compose -p study-uniapp -f study-uniapp-compose.yml up -d --remove-orphans
 
 # 停止 study-uniapp 项目容器
-# docker compose -p study-uniapp -f docker-compose.yml down
+# docker compose -p study-uniapp -f study-uniapp-compose.yml down
