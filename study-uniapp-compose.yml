@@ -5,13 +5,14 @@ services:
   study-uniapp-web:
     image: xcy960815/study-uniapp:1.0.0
     container_name: study-uniapp-web
+    user: 'root'
     ports:
       - '9527:80'
     restart: unless-stopped
     environment:
       - TZ=Asia/Shanghai
     volumes:
-      - ./logs/nginx:/var/log/nginx
+      - ./logs/nginx:/var/log/nginx:rw
     networks:
       - app-network
     healthcheck:
