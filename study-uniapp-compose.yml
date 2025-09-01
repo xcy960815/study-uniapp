@@ -11,8 +11,6 @@ services:
     restart: on-failure:5
     environment:
       - TZ=Asia/Shanghai
-    volumes:
-      - ./logs/nginx:/var/log/nginx:rw
     networks:
       - study-uniapp-network
     healthcheck:
@@ -47,9 +45,6 @@ networks:
   study-uniapp-network:
     driver: bridge
 
-volumes:
-  nginx-logs:
-    driver: local
 # 执行指令
 # docker-compose -p study-uniapp -f study-uniapp-compose.yml up -d --remove-orphans
 
