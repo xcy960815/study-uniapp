@@ -8,13 +8,13 @@ services:
     user: 'root'
     ports:
       - '9527:80'
-    restart: unless-stopped
+    restart: on-failure:5
     environment:
       - TZ=Asia/Shanghai
     volumes:
       - ./logs/nginx:/var/log/nginx:rw
     networks:
-      - app-network
+      - study-uniapp-network
     healthcheck:
       test: ['CMD', 'curl', '-f', 'http://localhost/health']
       interval: 30s
@@ -44,11 +44,8 @@ services:
   #     retries: 3
 
 networks:
-  app-network:
+  study-uniapp-network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.30.0.0/16
 
 volumes:
   nginx-logs:
