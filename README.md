@@ -182,3 +182,40 @@ npm run dev:h5
 ├── tsconfig.json              # typescript 配置
 └── vite.config.ts             # vite 配置
 ```
+
+### Docker 部署
+
+本项目支持 Docker 部署，提供了 `Dockerfile` 和 `study-uniapp-compose.yml` 文件。
+
+#### 1. 构建镜像
+
+```shell
+docker build -t study-uniapp .
+```
+
+#### 2. 启动服务
+
+使用 Docker Compose 启动服务：
+
+```shell
+docker-compose -p study-uniapp -f study-uniapp-compose.yml up -d
+```
+
+或者使用 Docker 命令直接运行：
+
+```shell
+docker run -d -p 80:80 --name study-uniapp study-uniapp
+```
+
+#### 3. 访问应用
+
+启动成功后，访问 `http://localhost` 即可查看应用。
+
+#### 4. 自动化部署
+
+本项目配置了 GitHub Actions，当推送 `v*` 标签时，会自动构建并推送到 Docker Hub。
+
+```shell
+git tag v1.0.0
+git push origin v1.0.0
+```
