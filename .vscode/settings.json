@@ -40,6 +40,7 @@
     "buildx",
     "DOCKERHUB",
     "weixin",
-    "Hbuilder"
+    "Hbuilder",
+    "healthcheck"
   ]
 }
