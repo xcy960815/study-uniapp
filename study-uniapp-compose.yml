@@ -3,7 +3,7 @@
 services:
   # 前端 H5 应用
   study-uniapp-web:
-    image: xcy960815/study-uniapp:1.0.0
+    image: xcy960815/study-uniapp:${IMAGE_VERSION:-latest}
     container_name: study-uniapp-web
     user: 'root'
     ports:
