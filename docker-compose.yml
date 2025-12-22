@@ -1,0 +1,31 @@
+services:
+  # 前端 H5 应用
+  study-uniapp-web:
+    image: xcy960815/study-uniapp:${IMAGE_VERSION:-latest}
+    container_name: study-uniapp-container
+    user: 'root' # 适配 iStoreOS 权限环境
+    ports:
+      - '9527:80'
+    restart: always # 业内生产环境通常建议 always
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      # 标准：将 Nginx 运行日志映射到硬盘，方便排查且不占系统空间
+      - /mnt/sata1-4/AppData/study-uniapp/logs:/var/log/nginx
+    networks:
+      - study-uniapp-network
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+
+networks:
+  study-uniapp-network:
+    driver: bridge

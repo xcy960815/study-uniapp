@@ -41,6 +41,7 @@
     "DOCKERHUB",
     "weixin",
     "Hbuilder",
-    "healthcheck"
+    "healthcheck",
+    "tzdata"
   ]
 }
