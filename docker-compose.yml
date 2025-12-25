@@ -1,5 +1,4 @@
 services:
-  # 前端 H5 应用
   study-uniapp-web:
     image: xcy960815/study-uniapp:${IMAGE_VERSION:-latest}
     container_name: study-uniapp-container
@@ -25,7 +24,11 @@ services:
       options:
         max-size: '10m'
         max-file: '3'
+    labels:
+      - 'com.docker.compose.project=study-uniapp'
+      - 'com.docker.compose.service=web'
 
 networks:
   study-uniapp-network:
+    name: study-uniapp-network
     driver: bridge

@@ -1,221 +1,112 @@
-## 项目简介
+# Study UniApp - 小兔鲜儿电商项目
 
-### 项目说明
+## 📝 项目简介
 
-Study UniApp 学习项目，基于 uni-app 框架开发的跨平台电商应用。
+本项目是一个基于 **uni-app** 框架开发的跨平台电商学习项目（小兔鲜儿），由 [Megasu/study-uniapp-vue3-ts](https://gitcode.com/Megasu/study-uniapp-vue3-ts/) Fork 并进行持续优化。
 
-当前仓库是 **uni-app** 开发的学习项目，通过**条件编译**能兼容 **H5 端**、**微信小程序端** 和 **App 端**。
+通过**条件编译**，本项目完美兼容 **H5 端**、**微信小程序端** 和 **App 端 (Android/iOS)**。
 
-### 在线体验
+### 🚀 核心技术栈
 
-<table>
-  <tr>
-    <td>体验小程序端</td>
-    <td><a target="_blank" href="https://megasu.atomgit.net/study-uniapp-vue3-ts/">体验 H5 端</a></td>
-    <td><a target="_blank" href="https://gitee.com/Megasu/study-uniapp-vue3-ts/releases/download/v1.0.0/study-uniapp.apk">体验 App 端(安卓)</a></td>
-  </tr>
-  <tr>
-    <td><img width="300" src="./README/images/code-mp-weixin.png" alt=""></td>
-    <td><img width="300" src="./README/images/code-h5.png" alt=""></td>
-    <td><img width="300" src="./README/images/code-android.png" alt=""></td>
-  </tr>
-</table>
+- **框架**: [uni-app](https://uniapp.dcloud.net.cn/) (Vue3 + TypeScript + Vite)
+- **状态管理**: [Pinia](https://pinia.vuejs.org/zh/) (集成持久化插件)
+- **UI 组件库**: [uni-ui](https://uniapp.dcloud.net.cn/component/uniui/uni-ui.html)
+- **部署**: Docker + Nginx
 
-## 资料说明
+---
 
-### 📀 视频学习
+## 📦 功能模块
 
-[https://www.bilibili.com/video/BV1Bp4y1379L/](https://www.bilibili.com/video/BV1Bp4y1379L/?share_source=copy_web&vd_source=2ac50d29193927b3c8597537dc4bc81d)
+- **首页模块**: 轮播图、面板展示、热门推荐。
+- **分类模块**: 多级分类浏览。
+- **商品详情**: SKU 选择、商品参数、详情展示。
+- **购物车**: 加入购物车、数量编辑、合并结算。
+- **会员中心**: 微信一键登录、个人信息管理、收货地址管理。
+- **订单系统**: 创建订单、支付流程、订单列表、详情追踪。
 
-### 📗 接口文档
+---
 
-[https://www.apifox.cn/apidoc/shared-0e6ee326-d646-41bd-9214-29dbf47648fa/](https://www.apifox.cn/apidoc/shared-0e6ee326-d646-41bd-9214-29dbf47648fa/)
+## 🛠️ 开发与运行
 
-### ✏️ 在线笔记
+### 1. 环境准备
 
-[https://megasu.atomgit.net/uni-app-shop-note/](https://megasu.atomgit.net/uni-app-shop-note/)
+- **Node 版本**: v18+
+- **包管理器**: pnpm (推荐)
 
-### 📦 项目源码
-
-[https://gitcode.com/Megasu/study-uniapp-vue3-ts/](https://gitcode.com/Megasu/study-uniapp-vue3-ts/)
-
-### 项目架构
-
-![项目架构图](./README/images/project_structure.png)
-
-## 项目演示
-
-### 在线演示
-
-项目为学习演示项目，支持 H5、微信小程序、App 等多端运行。
-
-### 项目截图
-
-<table>
-  <tr>
-    <td><img width="100" src="./README/images/screenshot_1.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_2.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_3.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_4.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_5.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_6.jpg" alt=""></td>
-  </tr>
-  <tr>
-    <td><img width="100" src="./README/images/screenshot_7.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_8.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_9.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_10.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_11.jpg" alt=""></td>
-    <td><img width="100" src="./README/images/screenshot_12.jpg" alt=""></td>
-  </tr>
-</table>
-
-## 小兔鲜儿-微信小程序
-
-### 项目简介
-
-微信小程序端：该项目包含了从首页浏览商品，到商品详情，微信登录，加入购物车，提交订单，微信支付，订单管理等功能。
-
-### 技术栈
-
-- 前端框架：[uni-app](https://uniapp.dcloud.net.cn/) (Vue3 + TS)
-- 状态管理：[pinia](https://pinia.vuejs.org/zh/)
-- 组件库：[uni-ui](https://uniapp.dcloud.net.cn/component/uniui/uni-ui.html)
-
-### 项目模块
-
-- 项目起步
-- 首页模块
-- 推荐模块
-- 分类模块
-- 详情模块
-- 登录模块
-- 用户模块
-- 地址模块
-- SKU 模块
-- 购物车模块
-- 订单模块
-- 项目打包
-
-### 开发环境
-
-- Windows 版本： Windows 11 家庭中文版 / MacOS 15.0
-- 开发工具： VS Code 、 HbuilderX 、 微信开发者工具
-- Node 版本： v16.15.0 / v22.15.0
-- pnpm 版本：v8.6.10 / v9.15.3
-
-### 运行程序
-
-1. 安装依赖
+### 2. 安装依赖
 
 ```shell
-# npm
-npm i --registry=https://registry.npmmirror.com
-
-# pnpm
-pnpm i --registry=https://registry.npmmirror.com
+pnpm install
 ```
 
-2. 运行程序
+### 3. 本地开发
 
 ```shell
 # 微信小程序端
-npm run dev:mp-weixin
+pnpm run dev:mp-weixin
 
-# H5端
-npm run dev:h5
+# H5 端
+pnpm run dev:h5
 
-# App端
-需 HbuilderX 工具，运行 - 运行到手机或模拟器
+# App 端
+需使用 HBuilderX 工具，选择“运行 - 运行到手机或模拟器”
 ```
 
-3. 微信开发者工具导入 `/dist/dev/mp-weixin` 目录
+---
 
-### 工程结构解析
+## 🐳 Docker 部署
 
-```
-├── .husky                     # Git Hooks
-├── .vscode                    # VS Code 插件 + 设置
-├── dist                       # 打包文件夹（可删除重新打包）
-├── src                        # 源代码
-│   ├── components             # 全局组件
-│   ├── composables            # 组合式函数
-│   ├── pages                  # 主包页面
-│       ├── index               # 首页
-│       ├── category            # 分类页
-│       ├── cart                # 购物车
-│       ├── my                  # 我的
-│       ├── goods               # 商品详情
-│       └── hot                 # 热门推荐
-│       └── login               # 登录页
-│   ├── pagesMember            # 分包页面(用户模块)
-│       ├── address             # 地址管理
-│       ├── address-form        # 地址表单
-│       ├── profile             # 用户信息
-│       └── settings            # 用户设置
-│   ├── pagesOrder             # 分包页面(订单模块)
-│       ├── create              # 创建订单
-│       ├── detail              # 订单详情
-│       ├── list                # 订单列表
-│       └── payment             # 支付结果
-│   ├── services               # 所有请求
-│   ├── static                 # 存放应用引用的本地静态资源的目录
-│       ├── images              # 普通图片
-│       └── tabs                # tabBar 图片
-│   ├── stores                 # 全局 pinia store
-│       ├── modules             # 模块
-│       └── index.ts            # store 入口
-│   ├── styles                 # 全局样式
-│       └── fonts.scss          # 字体图标
-│   ├── types                  # 类型声明文件
-│   ├── utils                  # 全局方法
-│   ├── App.vue                # 入口页面
-│   ├── main.ts                # Vue初始化入口文件
-│   ├── pages.json             # 配置页面路由等页面类信息
-│   ├── manifest.json          # 配置appid等打包信息
-│   └── uni.scss               # uni-app 内置的常用样式变量
-├── .eslintrc.cjs              # eslint 配置
-├── .prettierrc.json           # prettier 配置
-├── .gitignore                 # git 忽略文件
-├── index.html                 # H5 端首页
-├── package.json               # package.json 依赖
-├── tsconfig.json              # typescript 配置
-└── vite.config.ts             # vite 配置
-```
+本项目已完成深度容器化配置，支持一键部署。
 
-### Docker 部署
-
-本项目支持 Docker 部署，提供了 `Dockerfile` 和 `study-uniapp-compose.yml` 文件。
-
-#### 1. 构建镜像
+### 1. 快速启动
 
 ```shell
-docker build -t study-uniapp .
+# 使用 Docker Compose 一键启动
+docker-compose up -d
 ```
 
-#### 2. 启动服务
+启动后访问：`http://localhost:9527`
 
-使用 Docker Compose 启动服务：
+### 2. 自动化构建
+
+可以使用内置脚本进行镜像构建：
 
 ```shell
-docker-compose -p study-uniapp -f study-uniapp-compose.yml up -d
+./build-docker.sh [版本号]
 ```
 
-或者使用 Docker 命令直接运行：
+更多 Docker 详细配置请参考：[DOCKER.md](./DOCKER.md)
 
-```shell
-docker run -d -p 80:80 --name study-uniapp study-uniapp
+---
+
+## 📂 项目结构
+
+```text
+├── .github/workflows          # GitHub Actions 自动化部署
+├── src/
+│   ├── components             # 全局公共组件
+│   ├── pages/                 # 主包页面 (首页、分类、购物车、我的)
+│   ├── pagesMember/           # 会员分包
+│   ├── pagesOrder/            # 订单分包
+│   ├── services/              # API 请求封装
+│   ├── stores/                # Pinia 状态管理
+│   ├── types/                 # TypeScript 类型定义
+│   └── utils/                 # 工具函数
+├── docker-compose.yml         # Docker 编排配置
+├── Dockerfile                 # 镜像构建配置
+└── nginx-docker.conf          # 容器专用 Nginx 配置
 ```
 
-#### 3. 访问应用
+---
 
-启动成功后，访问 `http://localhost` 即可查看应用。
+## 🔗 相关资源
 
-#### 4. 自动化部署
+- **原作者项目**: [Megasu/study-uniapp-vue3-ts](https://gitcode.com/Megasu/study-uniapp-vue3-ts/)
+- **配套视频**: [Bilibili 教程](https://www.bilibili.com/video/BV1Bp4y1379L/)
+- **接口文档**: [Apifox 文档](https://www.apifox.cn/apidoc/shared-0e6ee326-d646-41bd-9214-29dbf47648fa/)
 
-本项目配置了 GitHub Actions，当推送 `v*` 标签时，会自动构建并推送到 Docker Hub。
+---
 
-```shell
-git tag v1.0.0
-git push origin v1.0.0
-```
+## 📄 许可证
+
+[MIT License](./LICENSE)
