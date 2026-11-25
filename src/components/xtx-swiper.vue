@@ -52,5 +52,5 @@ defineProps<{
 </template>
 
 <style lang="scss">
-@import './styles/XtxSwiper.scss';
+@import './styles/xtx-swiper.scss';
 </style>

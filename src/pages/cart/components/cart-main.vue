@@ -177,7 +177,7 @@ const { guessRef, onScrolltolower } = useGuessList()
       </view>
       <!-- 购物车空状态 -->
       <view class="cart-blank" v-else>
-        <image src="/static/images/blank_cart.png" class="image" />
+        <image src="/static/images/blank-cart.png" class="image" />
         <text class="text">购物车还是空的，快来挑选好货吧</text>
         <navigator url="/pages/index/index" hover-class="none">
           <button class="button">去首页看看</button>
@@ -211,7 +211,7 @@ const { guessRef, onScrolltolower } = useGuessList()
       </navigator>
     </view>
     <!-- 猜你喜欢 -->
-    <XtxGuess ref="guessRef" />
+    <xtx-guess ref="guessRef" />
     <!-- 底部占位空盒子 -->
     <view class="toolbar-height"></view>
   </scroll-view>

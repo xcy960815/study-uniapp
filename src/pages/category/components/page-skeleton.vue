@@ -40,7 +40,7 @@
           </view>
         </scroll-view>
         <scroll-view :scroll-y="true" class="secondary">
-          <view is="components/XtxSwiper" class="banner">
+          <view is="components/xtx-swiper" class="banner">
             <view class="carousel XtxSwiper--carousel">
               <view class="indicator XtxSwiper--indicator">
                 <text class="dot XtxSwiper--dot active XtxSwiper--active"></text>
@@ -164,7 +164,7 @@
 <style lang="scss">
 /* #ifdef H5 || APP-PLUS */
 /* 修复 H5 端骨架屏样式异常 */
-@import '@/components/styles/XtxSwiper.scss';
+@import '@/components/styles/xtx-swiper.scss';
 @import '../styles/category.scss';
 /* #endif */
 .sk-transparent {

@@ -1,5 +1,5 @@
-import XtxSwiper from '@/components/XtxSwiper.vue'
-import XtxGuess from '@/components/XtxGuess.vue'
+import XtxSwiper from '@/components/xtx-swiper.vue'
+import XtxGuess from '@/components/xtx-guess.vue'
 
 declare module 'vue' {
   export interface GlobalComponents {

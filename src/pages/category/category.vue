@@ -6,7 +6,7 @@ import type { BannerItem } from '@/types/home'
 import { useCategoryStore } from '@/stores/modules/category'
 import { onLoad } from '@dcloudio/uni-app'
 import { computed, ref } from 'vue'
-import PageSkeleton from './components/PageSkeleton.vue'
+import PageSkeleton from './components/page-skeleton.vue'
 
 // 获取轮播图数据
 const bannerList = ref<BannerItem[]>([])
@@ -70,7 +70,7 @@ const subCategoryList = computed(() => {
       <!-- 右侧：二级分类 -->
       <scroll-view enable-back-to-top class="secondary" scroll-y>
         <!-- 焦点图 -->
-        <XtxSwiper class="banner" :list="bannerList" />
+        <xtx-swiper class="banner" :list="bannerList" />
         <!-- 内容区域 -->
         <view class="panel" v-for="item in subCategoryList" :key="item.id">
           <view class="title">

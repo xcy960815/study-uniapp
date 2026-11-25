@@ -7,8 +7,8 @@
     "custom": {
       // uni-ui 规则如下配置
       "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue",
-      // 以 Xtx 开头的组件，在 components 文件夹中查找引入（需要重启服务器）
-      "^Xtx(.*)": "@/components/Xtx$1.vue"
+      // 以 xtx- 开头的组件，在 components 文件夹中查找引入（需要重启服务器）
+      "^xtx-(.*)": "@/components/xtx-$1.vue"
     }
   },
   "pages": [
@@ -88,26 +88,26 @@
       {
         "text": "首页",
         "pagePath": "pages/index/index",
-        "iconPath": "static/tabs/home_default.png",
-        "selectedIconPath": "static/tabs/home_selected.png"
+        "iconPath": "static/tabs/home-default.png",
+        "selectedIconPath": "static/tabs/home-selected.png"
       },
       {
         "text": "分类",
         "pagePath": "pages/category/category",
-        "iconPath": "static/tabs/category_default.png",
-        "selectedIconPath": "static/tabs/category_selected.png"
+        "iconPath": "static/tabs/category-default.png",
+        "selectedIconPath": "static/tabs/category-selected.png"
       },
       {
         "text": "购物车",
         "pagePath": "pages/cart/cart",
-        "iconPath": "static/tabs/cart_default.png",
-        "selectedIconPath": "static/tabs/cart_selected.png"
+        "iconPath": "static/tabs/cart-default.png",
+        "selectedIconPath": "static/tabs/cart-selected.png"
       },
       {
         "text": "我的",
         "pagePath": "pages/my/my",
-        "iconPath": "static/tabs/user_default.png",
-        "selectedIconPath": "static/tabs/user_selected.png"
+        "iconPath": "static/tabs/user-default.png",
+        "selectedIconPath": "static/tabs/user-selected.png"
       }
     ]
   },
@@ -181,9 +181,7 @@
   "preloadRule": {
     "pages/my/my": {
       "network": "all",
-      "packages": [
-        "pagesMember"
-      ]
+      "packages": ["pagesMember"]
     }
   }
 }

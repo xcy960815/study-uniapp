@@ -9,8 +9,8 @@ import { getGoodsByIdAPI } from '@/services/goods'
 import type { GoodsResult } from '@/types/goods'
 import { onLoad } from '@dcloudio/uni-app'
 import { computed, ref } from 'vue'
-import AddressPanel from './components/AddressPanel.vue'
-import ServicePanel from './components/ServicePanel.vue'
+import AddressPanel from './components/address-panel.vue'
+import ServicePanel from './components/service-panel.vue'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()

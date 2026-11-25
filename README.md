@@ -62,6 +62,10 @@ pnpm run dev:h5
 
 ---
 
+## 文件命名
+
+业务文件和静态资源使用小写短横线（kebab-case），例如 `xtx-guess.vue`、`page-skeleton.vue` 和 `home-selected.png`。Vue 组件的导入变量仍使用 PascalCase。保留 uni-app 入口 `App.vue`、工具约定名及已发布的页面路由。
+
 ## 📂 项目结构
 
 ```text

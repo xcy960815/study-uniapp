@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import OrderList from './components/OrderList.vue'
+import OrderList from './components/order-list.vue'
 
 // 获取页面参数
 const query = defineProps<{

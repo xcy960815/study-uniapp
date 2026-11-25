@@ -3,10 +3,10 @@ import { getHomeBannerAPI, getHomeCategoryAPI, getHomeHotAPI } from '@/services/
 import type { BannerItem, CategoryItem, HotItem } from '@/types/home'
 import { onLoad } from '@dcloudio/uni-app'
 import { ref } from 'vue'
-import CustomNavbar from './components/CustomNavbar.vue'
-import CategoryPanel from './components/CategoryPanel.vue'
-import HotPanel from './components/HotPanel.vue'
-import PageSkeleton from './components/PageSkeleton.vue'
+import CustomNavbar from './components/custom-navbar.vue'
+import CategoryPanel from './components/category-panel.vue'
+import HotPanel from './components/hot-panel.vue'
+import PageSkeleton from './components/page-skeleton.vue'
 import { useGuessList } from '@/composables'
 
 // 获取轮播图数据
@@ -82,12 +82,12 @@ const onRefresherrefresh = async () => {
         <template v-else>
           <view class="home-lead" :class="{ paired: bannerList.length && categoryList.length }">
             <view v-if="bannerList.length" class="home-banner">
-              <XtxSwiper :list="bannerList" />
+              <xtx-swiper :list="bannerList" />
             </view>
             <CategoryPanel v-if="categoryList.length" :list="categoryList" />
           </view>
           <HotPanel v-if="hotList.length" :list="hotList" />
-          <XtxGuess ref="guessRef" storefront />
+          <xtx-guess ref="guessRef" storefront />
         </template>
       </view>
     </scroll-view>

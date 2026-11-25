@@ -12,7 +12,7 @@ import {
 import type { LogisticItem, OrderResult } from '@/types/order'
 import { onLoad, onReady } from '@dcloudio/uni-app'
 import { ref } from 'vue'
-import PageSkeleton from './components/PageSkeleton.vue'
+import PageSkeleton from './components/page-skeleton.vue'
 import { payOrder } from '@/services/pay'
 
 // 获取屏幕边界到安全区域距离
@@ -321,7 +321,7 @@ const onOrderCancel = async () => {
       </view>
 
       <!-- 猜你喜欢 -->
-      <XtxGuess ref="guessRef" />
+      <xtx-guess ref="guessRef" />
 
       <!-- 底部操作栏 -->
       <view class="toolbar-height" :style="{ paddingBottom: safeAreaInsets?.bottom + 'px' }"></view>

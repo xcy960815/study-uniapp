@@ -48,7 +48,7 @@ onLoad(() => {
     </view>
 
     <!-- 猜你喜欢 -->
-    <XtxGuess ref="guessRef" />
+    <xtx-guess ref="guessRef" />
   </scroll-view>
 </template>
 
