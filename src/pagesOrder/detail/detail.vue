@@ -13,7 +13,7 @@ import type { LogisticItem, OrderResult } from '@/types/order'
 import { onLoad, onReady } from '@dcloudio/uni-app'
 import { ref } from 'vue'
 import PageSkeleton from './components/PageSkeleton.vue'
-import { getPayMockAPI, getPayWxPayMiniPayAPI } from '@/services/pay'
+import { payOrder } from '@/services/pay'
 
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -116,25 +116,7 @@ const onTimeup = () => {
 
 // 订单支付
 const onOrderPay = async () => {
-  if (import.meta.env.DEV) {
-    // 开发环境模拟支付
-    await getPayMockAPI({ orderId: query.id })
-  } else {
-    // #ifdef MP-WEIXIN
-
-    // 正式环境支付：1.获取支付订单信息，2.调用微信支付API
-    // const res = await getPayWxPayMiniPayAPI({ orderId: query.id })
-    // await wx.requestPayment(res.result)
-
-    // 注意：因小程序上线后被恶意投诉：理由为支付 0.01 元后不发货，现调整为模拟支付
-    await getPayMockAPI({ orderId: query.id })
-    // #endif
-
-    // #ifdef H5 || APP-PLUS
-    // H5端 和 App 端未开通支付-模拟支付体验
-    await getPayMockAPI({ orderId: query.id })
-    // #endif
-  }
+  if (!(await payOrder(query.id))) return
   // 关闭当前页，再跳转支付结果页
   uni.redirectTo({ url: `/pagesOrder/payment/payment?id=${query.id}` })
 }

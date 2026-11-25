@@ -23,3 +23,19 @@ export const getPayMockAPI = (data: { orderId: string }) => {
     data,
   })
 }
+
+const pendingPayments = new Set<string>()
+
+export const payOrder = async (orderId: string) => {
+  if (pendingPayments.has(orderId)) return false
+  pendingPayments.add(orderId)
+  try {
+    await getPayMockAPI({ orderId })
+    return true
+  } catch {
+    // 请求层已提示错误，订单保持待付款，可再次尝试。
+    return false
+  } finally {
+    pendingPayments.delete(orderId)
+  }
+}

@@ -4,7 +4,7 @@ import { orderStateList } from '@/services/constants'
 import { putMemberOrderReceiptByIdAPI } from '@/services/order'
 import { deleteMemberOrderAPI } from '@/services/order'
 import { getMemberOrderAPI } from '@/services/order'
-import { getPayMockAPI, getPayWxPayMiniPayAPI } from '@/services/pay'
+import { payOrder } from '@/services/pay'
 import type { OrderItem } from '@/types/order'
 import type { OrderListParams } from '@/types/order'
 import { onMounted, ref } from 'vue'
@@ -59,25 +59,12 @@ onMounted(() => {
 
 // 订单支付
 const onOrderPay = async (id: string) => {
-  if (import.meta.env.DEV) {
-    // 开发环境模拟支付
-    await getPayMockAPI({ orderId: id })
-  } else {
-    // #ifdef MP-WEIXIN
-
-    // 正式环境支付：1.获取支付订单信息，2.调用微信支付API
-    // const res = await getPayWxPayMiniPayAPI({ orderId: id })
-    // await wx.requestPayment(res.result)
-
-    // 注意：因小程序上线后被恶意投诉：理由为支付 0.01 元后不发货，现调整为模拟支付
-    await getPayMockAPI({ orderId: id })
-    // #endif
-  }
+  if (!(await payOrder(id))) return
   // 成功提示
   uni.showToast({ title: '模拟支付成功' })
   // 模拟支付提示
   setTimeout(() => {
-    wx.showModal({
+    uni.showModal({
       title: '温馨提示',
       content: '此交易是模拟支付，您并未付款，不会导致实际购买商品或服务',
       confirmText: '知道了',
@@ -86,7 +73,7 @@ const onOrderPay = async (id: string) => {
   }, 2000)
   // 更新订单状态
   const order = orderList.value.find((v) => v.id === id)
-  order!.orderState = OrderState.DaiFaHuo
+  if (order) order.orderState = OrderState.DaiFaHuo
 }
 
 // 确认收货
