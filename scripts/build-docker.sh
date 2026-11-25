@@ -3,6 +3,7 @@
 # Study UniApp 学习项目 Docker 构建脚本
 
 set -e
+cd "$(dirname "$0")/.."
 
 # 颜色定义
 RED='\033[0;31m'
@@ -25,7 +26,7 @@ echo ""
 
 # 检查必要文件
 echo -e "${YELLOW}📋 检查必要文件...${NC}"
-required_files=("Dockerfile" "nginx-docker.conf" "package.json" ".dockerignore")
+required_files=("Dockerfile" "docker/nginx/default.conf" "package.json" ".dockerignore")
 for file in "${required_files[@]}"; do
     if [ ! -f "$file" ]; then
         echo -e "${RED}❌ 缺少必要文件: $file${NC}"
@@ -33,12 +34,6 @@ for file in "${required_files[@]}"; do
     fi
     echo -e "${GREEN}✅ $file${NC}"
 done
-echo ""
-
-# 清理之前的构建产物
-echo -e "${YELLOW}🧹 清理之前的构建产物...${NC}"
-rm -rf dist/build
-echo -e "${GREEN}✅ 清理完成${NC}"
 echo ""
 
 # 构建 Docker 镜像
@@ -112,9 +107,6 @@ echo ""
 echo -e "${YELLOW}📝 使用说明:${NC}"
 echo -e "${BLUE}# 运行容器${NC}"
 echo -e "${BLUE}docker run -d -p 8080:80 --name ${PROJECT_NAME} ${IMAGE_NAME}:${VERSION}${NC}"
-echo ""
-echo -e "${BLUE}# 使用 Docker Compose${NC}"
-echo -e "${BLUE}docker-compose up -d${NC}"
 echo ""
 echo -e "${BLUE}# 查看日志${NC}"
 echo -e "${BLUE}docker logs ${PROJECT_NAME}${NC}"

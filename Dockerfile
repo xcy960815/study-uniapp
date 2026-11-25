@@ -12,7 +12,7 @@ WORKDIR /app
 RUN npm config set registry https://registry.npmmirror.com
 
 # 安装 pnpm
-RUN npm install -g pnpm
+RUN npm install -g pnpm@10.33.0
 
 # 复制 package 文件
 COPY package.json pnpm-lock.yaml ./
@@ -52,7 +52,7 @@ EXPOSE 80
 WORKDIR /app
 
 # 复制 nginx 配置文件
-COPY nginx-docker.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # 创建日志目录
 RUN mkdir -p /var/log/nginx
@@ -66,7 +66,7 @@ COPY --from=frontend-builder /app/dist/build/h5 /usr/share/nginx/html/
 
 # 创建健康检查脚本
 RUN echo '#!/bin/sh' > /healthcheck.sh && \
-    echo 'curl -f http://localhost/health || exit 1' >> /healthcheck.sh && \
+    echo 'wget -q --spider http://127.0.0.1/health || exit 1' >> /healthcheck.sh && \
     chmod +x /healthcheck.sh
 
 # 添加健康检查

@@ -56,26 +56,9 @@ pnpm run dev:h5
 
 ## 🐳 Docker 部署
 
-本项目已完成深度容器化配置，支持一键部署。
+在仓库根目录运行 `docker build -t study-uniapp:local .` 构建 H5 镜像。使用 `docker run --rm -p 8080:80 study-uniapp:local` 本地预览，访问 `http://localhost:8080`。
 
-### 1. 快速启动
-
-```shell
-# 使用 Docker Compose 一键启动
-docker-compose up -d
-```
-
-启动后访问：`http://localhost:9527`
-
-### 2. 自动化构建
-
-可以使用内置脚本进行镜像构建：
-
-```shell
-./build-docker.sh [版本号]
-```
-
-更多 Docker 详细配置请参考：[DOCKER.md](./DOCKER.md)
+镜像构建与发布见 [Docker 说明](./docs/docker.md)。部署时进入本项目的 [docker/compose](./docker/compose/README.md)，在同目录的 `.env` 中配置镜像、端口和日志路径。
 
 ---
 
@@ -92,9 +75,11 @@ docker-compose up -d
 │   ├── stores/                # Pinia 状态管理
 │   ├── types/                 # TypeScript 类型定义
 │   └── utils/                 # 工具函数
-├── docker-compose.yml         # Docker 编排配置
-├── Dockerfile                 # 镜像构建配置
-└── nginx-docker.conf          # 容器专用 Nginx 配置
+├── docker/compose/            # Compose 编排、.env 和部署说明
+├── docker/nginx/              # Nginx 配置
+├── scripts/                   # 镜像构建及开发脚本
+├── docs/                      # 构建说明与项目截图
+└── Dockerfile                 # 镜像构建入口
 ```
 
 ---
