@@ -1,52 +1,80 @@
-/* 热门推荐 */
+.section-title {
+  margin: 24px 0 12px;
+  color: #193e32;
+  font-size: 21px;
+  font-weight: 650;
+}
 .hot {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 508rpx;
-  margin: 20rpx 20rpx 0;
-  border-radius: 10rpx;
-  background-color: #fff;
-
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  .item {
+    padding: 12px;
+    border-radius: 14px;
+    background: #e6efe9;
+    color: #204438;
+  }
+  .item:nth-child(4n + 2) {
+    background: #f4e9de;
+    color: #633f2e;
+  }
+  .item:nth-child(4n + 3) {
+    background: #e7edf3;
+    color: #304b60;
+  }
+  .item:nth-child(4n) {
+    background: #f1ead8;
+    color: #5c512b;
+  }
   .title {
     display: flex;
     align-items: center;
-    padding: 24rpx 24rpx 0;
-    font-size: 32rpx;
-    color: #262626;
-    position: relative;
-    .title-desc {
-      font-size: 24rpx;
-      color: #7f7f7f;
-      margin-left: 18rpx;
-    }
+    justify-content: space-between;
   }
-
-  .item {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    height: 254rpx;
-    border-right: 1rpx solid #eee;
-    border-top: 1rpx solid #eee;
-    .title {
-      justify-content: start;
-    }
-    &:nth-child(2n) {
-      border-right: 0 none;
-    }
-    &:nth-child(-n + 2) {
-      border-top: 0 none;
-    }
-    .image {
-      width: 150rpx;
-      height: 150rpx;
-    }
+  .title-text {
+    font-size: 16px;
+    font-weight: 650;
+  }
+  .arrow {
+    font-size: 20px;
+    line-height: 1;
+  }
+  .title-desc {
+    display: block;
+    margin: 3px 0 12px;
+    font-size: 12px;
   }
   .cards {
-    flex: 1;
-    padding: 15rpx 20rpx;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px;
+  }
+  .image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    background: #fff;
   }
 }
+/* #ifdef H5 */
+@media (min-width: 768px) {
+  .section-title {
+    margin: 32px 0 16px;
+    font-size: 25px;
+  }
+  .hot {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .hot .item {
+    padding: 16px;
+  }
+  .hot .item:hover {
+    box-shadow: 0 3px 12px rgba(28, 57, 44, 0.12);
+  }
+  .hot .title-text {
+    font-size: 19px;
+  }
+}
+/* #endif */

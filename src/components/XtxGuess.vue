@@ -4,6 +4,8 @@ import type { PageParams } from '@/types/global'
 import type { GuessItem } from '@/types/home'
 import { onMounted, ref } from 'vue'
 
+defineProps<{ storefront?: boolean }>()
+
 // 分页参数
 const pageParams: Required<PageParams> = {
   page: 1,
@@ -50,10 +52,10 @@ defineExpose({
 
 <template>
   <!-- 猜你喜欢 -->
-  <view class="caption">
+  <view class="caption" :class="{ 'storefront-heading': storefront }">
     <text class="text">猜你喜欢</text>
   </view>
-  <view class="guess">
+  <view class="guess" :class="{ 'storefront-products': storefront }">
     <navigator
       class="guess-item"
       v-for="item in guessList"
@@ -143,6 +145,75 @@ defineExpose({
     font-size: 80%;
   }
 }
+.storefront-heading {
+  justify-content: flex-start;
+  padding: 24px 0 12px;
+  font-size: 21px;
+  font-weight: 650;
+  line-height: 1.4;
+  color: #193e32;
+
+  .text {
+    padding: 0;
+  }
+  .text::before,
+  .text::after {
+    display: none;
+  }
+}
+.storefront-products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0;
+
+  .guess-item {
+    width: auto;
+    margin: 0;
+    padding: 0 0 12px;
+    border: 1px solid #e1e6dd;
+    border-radius: 14px;
+  }
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    background: #f0f2ed;
+  }
+  .name {
+    height: 40px;
+    margin: 10px 12px 6px;
+    line-height: 20px;
+    font-size: 14px;
+    text-wrap: balance;
+  }
+  .price {
+    padding: 0 12px;
+    font-size: 17px;
+    font-weight: 650;
+    color: #a3452c;
+  }
+}
+/* #ifdef H5 */
+@media (min-width: 600px) {
+  .storefront-products {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+@media (min-width: 768px) {
+  .storefront-heading {
+    padding: 32px 0 16px;
+    font-size: 25px;
+  }
+  .storefront-products {
+    gap: 16px;
+  }
+  .storefront-products .guess-item:hover {
+    border-color: #9eb5a7;
+  }
+}
+/* #endif */
 // 加载提示文字
 .loading-text {
   text-align: center;

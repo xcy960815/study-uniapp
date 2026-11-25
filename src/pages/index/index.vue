@@ -64,7 +64,7 @@ const onRefresherrefresh = async () => {
 </script>
 
 <template>
-  <view class="viewport">
+  <view class="home-viewport">
     <!-- 自定义导航栏 -->
     <CustomNavbar />
     <!-- 滚动容器 -->
@@ -77,36 +77,71 @@ const onRefresherrefresh = async () => {
       class="scroll-view"
       scroll-y
     >
-      <PageSkeleton v-if="isLoading" />
-      <template v-else>
-        <!-- 自定义轮播图 -->
-        <XtxSwiper :list="bannerList" />
-        <!-- 分类面板 -->
-        <CategoryPanel :list="categoryList" />
-        <!-- 热门推荐 -->
-        <HotPanel :list="hotList" />
-        <!-- 猜你喜欢 -->
-        <XtxGuess ref="guessRef" />
-      </template>
+      <view class="home-content">
+        <PageSkeleton v-if="isLoading" />
+        <template v-else>
+          <view class="home-lead" :class="{ paired: bannerList.length && categoryList.length }">
+            <view v-if="bannerList.length" class="home-banner">
+              <XtxSwiper :list="bannerList" />
+            </view>
+            <CategoryPanel v-if="categoryList.length" :list="categoryList" />
+          </view>
+          <HotPanel v-if="hotList.length" :list="hotList" />
+          <XtxGuess ref="guessRef" storefront />
+        </template>
+      </view>
     </scroll-view>
   </view>
 </template>
 
 <style lang="scss">
 page {
-  background-color: #f7f7f7;
   height: 100%;
   overflow: hidden;
+  background: #f6f6f0;
 }
-
-.viewport {
-  height: 100%;
+.home-viewport {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  background: #f6f6f0;
 }
-
 .scroll-view {
   flex: 1;
-  overflow: hidden;
+  min-height: 0;
 }
+.home-content {
+  width: 100%;
+  max-width: 1216px;
+  margin: auto;
+  padding: 14px 14px 20px;
+}
+.home-lead {
+  display: grid;
+  gap: 12px;
+  align-items: stretch;
+}
+.home-banner {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #e6ebe3;
+}
+/* #ifdef H5 */
+.home-banner :deep(.carousel) {
+  height: auto;
+  aspect-ratio: 750 / 280;
+}
+@media (min-width: 768px) {
+  .home-content {
+    padding: 24px;
+  }
+}
+@media (min-width: 960px) {
+  .home-lead.paired {
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+    gap: 18px;
+  }
+}
+/* #endif */
 </style>

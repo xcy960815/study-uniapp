@@ -3,6 +3,7 @@ import { getCategoryTopAPI } from '@/services/category'
 import { getHomeBannerAPI } from '@/services/home'
 import type { CategoryTopItem } from '@/types/category'
 import type { BannerItem } from '@/types/home'
+import { useCategoryStore } from '@/stores/modules/category'
 import { onLoad } from '@dcloudio/uni-app'
 import { computed, ref } from 'vue'
 import PageSkeleton from './components/PageSkeleton.vue'
@@ -16,7 +17,13 @@ const getBannerData = async () => {
 
 // 获取分类列表数据
 const categoryList = ref<CategoryTopItem[]>([])
-const activeIndex = ref(0)
+const categoryStore = useCategoryStore()
+const activeIndex = computed(() =>
+  Math.max(
+    0,
+    categoryList.value.findIndex((item) => item.id === categoryStore.selectedId),
+  ),
+)
 const getCategoryTopData = async () => {
   const res = await getCategoryTopAPI()
   categoryList.value = res.result
@@ -53,7 +60,7 @@ const subCategoryList = computed(() => {
           :key="item.id"
           class="item"
           :class="{ active: index === activeIndex }"
-          @tap="activeIndex = index"
+          @tap="categoryStore.selectedId = item.id"
         >
           <text class="name">
             {{ item.name }}

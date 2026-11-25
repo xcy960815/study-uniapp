@@ -1,71 +1,72 @@
 <script setup lang="ts">
-// 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()
 </script>
 
 <template>
-  <view class="navbar" :style="{ paddingTop: safeAreaInsets!.top + 10 + 'px' }">
-    <!-- logo文字 -->
-    <view class="logo">
-      <image class="logo-image" src="@/static/images/logo.png"></image>
-      <text class="logo-text">新鲜 · 亲民 · 快捷</text>
-    </view>
-    <!-- 搜索条 -->
-    <view class="search">
-      <text class="icon-search">搜索商品</text>
-      <text class="icon-scan"></text>
+  <view class="masthead" :style="{ paddingTop: (safeAreaInsets?.top || 0) + 'px' }">
+    <view class="masthead-inner">
+      <view class="brand">
+        <image class="wordmark" mode="aspectFit" src="@/static/images/logo.png" />
+        <text class="tagline">新鲜 · 亲民 · 快捷</text>
+      </view>
+      <!-- #ifndef MP-WEIXIN -->
+      <navigator class="cart-link" open-type="switchTab" url="/pages/cart/cart">
+        <uni-icons type="cart" size="19" color="#fff" />
+        <text>购物车</text>
+      </navigator>
+      <!-- #endif -->
     </view>
   </view>
 </template>
 
 <style lang="scss">
-/* 自定义导航条 */
-.navbar {
-  background-image: url(@/static/images/navigator_bg.png);
-  background-size: cover;
-  position: relative;
+.masthead {
+  background: #194b40;
+  color: #fff;
+}
+.masthead-inner {
+  box-sizing: border-box;
+  max-width: 1216px;
+  margin: 0 auto;
+  height: 58px;
+  padding: 0 16px;
   display: flex;
-  flex-direction: column;
-  padding-top: 20px;
-  .logo {
-    display: flex;
-    align-items: center;
-    height: 64rpx;
-    padding-left: 30rpx;
-    .logo-image {
-      width: 166rpx;
-      height: 39rpx;
-    }
-    .logo-text {
-      flex: 1;
-      line-height: 28rpx;
-      color: #fff;
-      margin: 2rpx 0 0 20rpx;
-      padding-left: 20rpx;
-      border-left: 1rpx solid #fff;
-      font-size: 26rpx;
-    }
-  }
-  .search {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10rpx 0 26rpx;
-    height: 64rpx;
-    margin: 16rpx 20rpx;
-    color: #fff;
-    font-size: 28rpx;
-    border-radius: 32rpx;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  .icon-search {
-    &::before {
-      margin-right: 10rpx;
-    }
-  }
-  .icon-scan {
-    font-size: 30rpx;
-    padding: 15rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand,
+.cart-link {
+  display: flex;
+  align-items: center;
+}
+.wordmark {
+  width: 85px;
+  height: 25px;
+}
+.tagline {
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid #77998d;
+  color: #e3efe9;
+  font-size: 12px;
+}
+.cart-link {
+  min-height: 44px;
+  font-size: 13px;
+  text {
+    margin-left: 6px;
   }
 }
+/* #ifdef H5 */
+@media (min-width: 768px) {
+  .masthead-inner {
+    height: 72px;
+    padding: 0 24px;
+  }
+  .wordmark {
+    width: 100px;
+    height: 30px;
+  }
+}
+/* #endif */
 </style>

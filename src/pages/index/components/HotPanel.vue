@@ -9,13 +9,20 @@ defineProps<{
 
 <template>
   <!-- 推荐专区 -->
-  <view class="panel hot">
-    <view class="item" v-for="item in list" :key="item.id">
+  <view class="section-title">热门推荐</view>
+  <view class="hot">
+    <navigator
+      class="item"
+      v-for="item in list"
+      :key="item.id"
+      :url="`/pages/hot/hot?type=${item.type}`"
+    >
       <view class="title">
         <text class="title-text">{{ item.title }}</text>
-        <text class="title-desc">{{ item.alt }}</text>
+        <text class="arrow" aria-hidden="true">›</text>
       </view>
-      <navigator hover-class="none" :url="`/pages/hot/hot?type=${item.type}`" class="cards">
+      <text class="title-desc">{{ item.alt }}</text>
+      <view class="cards">
         <image
           v-for="src in item.pictures"
           :key="src"
@@ -23,8 +30,8 @@ defineProps<{
           mode="aspectFit"
           :src="src"
         ></image>
-      </navigator>
-    </view>
+      </view>
+    </navigator>
   </view>
 </template>
 
