@@ -38,7 +38,7 @@ const onDeleteAddress = (id: string) => {
 const onChangeAddress = (item: AddressItem) => {
   // 修改地址
   const addressStore = useAddressStore()
-  addressStore.changeSelectedAddress(item)
+  addressStore.selectedAddressId = item.id
   // 返回上一页
   uni.navigateBack()
 }
