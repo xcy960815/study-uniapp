@@ -36,7 +36,7 @@ const isLoading = ref(false)
 // 页面加载
 onLoad(async () => {
   isLoading.value = true
-  await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()])
+  await Promise.allSettled([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()])
   isLoading.value = false
 })
 
@@ -46,15 +46,13 @@ const { guessRef, onScrolltolower } = useGuessList()
 const isTriggered = ref(false)
 // 自定义下拉刷新被触发
 const onRefresherrefresh = async () => {
+  if (isTriggered.value || isLoading.value) return
   // 开始动画
   isTriggered.value = true
   // 加载数据
-  // await getHomeBannerData()
-  // await getHomeCategoryData()
-  // await getHomeHotData()
   // 重置猜你喜欢组件数据
   guessRef.value?.resetData()
-  await Promise.all([
+  await Promise.allSettled([
     getHomeBannerData(),
     getHomeCategoryData(),
     getHomeHotData(),
